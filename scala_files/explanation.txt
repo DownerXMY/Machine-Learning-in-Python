@@ -1,0 +1,13 @@
+1.To construct the scala language propramming environment, one need the following requirements and steps:
+    (1).make sure that you have the java 8 JDK, entering as: java -version to check the version(must be 1.8 or 11)
+Enter as brew install scala
+2.To run the scala file in terminal:
+  scalac filename(if not found, add the file path)
+  (Notice that there will be two more file generated at /usr/local/Cellar/scala/2.13.3/libexec/bin, which are of the forms XXX.class and XXX$.class)
+  To run the scala file, entering as:
+      scala XXX
+  To delete those new files, entering as:
+      rm *.class
+3.Note that to run spark with the language scala, one need to match the version of scala on your computer and the version of the scala in spark in your conputer. Such as, in my computer, the scala version in spark is 2.12.12, hence we need to reinstall the scala, entering as:
+      brew install scala@2.12
+ 

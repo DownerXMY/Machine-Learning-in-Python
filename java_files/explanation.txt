@@ -1,0 +1,18 @@
+One need to illustrate something about the JAVA programingHow to run .java files in terminal:
+    1.entering as:
+         javac (-source 1.8) XXX.java
+      Then there will be a new file end with .class, which means that you have compile succseefully.
+    2.The most confusing manipulation:
+      note that there is package information at the beginning of the .java file, one need to first return back to the ”package的上一级目录“
+     entering as:
+         java (-ea) package.XXX(the classname without .class)
+    3.For instances: as for me, we may enter as:
+         java Java.HelloWorld
+
+We would like to introduce some basic tools for tracing the GC process:
+    1. jstat -gc <vmid>
+    2. jvisualvm/jconsole/jmc(open "Java Mission Control.app")
+    3. -XX:+PrintGCDetails
+    4. -XX:+PrintHeapAtGC
+    5. -verbose:gc
+

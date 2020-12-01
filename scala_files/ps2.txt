@@ -1,0 +1,59 @@
+1-1. When I started in researching the big-data distributed framework algorithms?
+   * My interests came mostly from a Tencent interview question provided by my teacher. 
+     "If you have a dataset of size 10000, but computers with memory capacity of only 100, then how to find the medium of the dataset?"
+     Almost everybody knows how to compute the average of the dataset under this scenario, but to compute the medium is a non-trivial task.
+   * Afterwords, I learned the solution of this problem based on the famous "Bahadur's representation" with its strict mathematical reduction.
+   * This learning experience realize me how the academic research in Math truly be, which turns to be a beginning of my research experience.
+1-2. What I have prepared for research:
+   * Mathematical reduction in such algorithms requires hard basics in probability theory. Hence I carefully read several professional textbooks recommended by my teacher myself, including:
+     "measure Theory",
+     "Probability Limit Theory",
+     "Probability Theory: Independence, Interchangeability, Martingales",
+     "Strong Approximations in Probability and Statistics",
+     ...
+   * Take the required courses in advance, since these courses are arranged in our senior year.
+     Including：
+     "Real Analysis",
+     "Mathematical Statistics"，
+     And some advanced courses for graduates:
+     "Probability Limit Theory",
+     "Stochastic Process"(All in English),
+     "Stochastic Analysis", 
+     ...
+
+2-1 What I have done in research:
+   * Read academic references published in JASA,AOS,JRSSB
+   * attend the academic seminar hosted by my teacher.
+     Within the seminar, we mainly read and discuss the idea in papers and do derivations of math on the blackboard.(阅读文献，讨论想法，现场推导公式证明) The topics discussed in the seminar include:
+     (1)Distributed computing algorithms: apply classical algorithms such SGD,SVRG,... to the distributed framework.
+     (2)Differential Privacy under "federal learning".
+     (3)The robustness of algorithms under distributed framework such as the famous "MOM"("medium of mean").
+     (4)The algorithms in data streaming.
+     (5)Add regularization to classical algorithms such as Lasso, GLasso,...
+     (6)Quantile Regression and distributed quantile regression.
+     ... 
+   * Inspired by teacher, I try to apply the quantile regression under Communication-Efficient framework. I am proud that I have done the theoretical proof by myself but unfortunately, the paper has not been finished since more applications need to be added to fulfill the paper. Also due to many factors include COVID-19, 时间(申请要开始了)
+2-2 What I have learned or understood through this experience:
+   * What math-research truly be. Objectively speaking, it's kind of boring and requires concentrations and courages.
+   * The most difficult part in the academic research is to "find the problem", like there is still space and possibility to make some breakthrough.
+   * The math reduction enables me to understand those models in a more native way. 直到后来，我把这些models用代码实现，我才真正感受到了这些理论基础对于我代码实现的帮助，它会让思路特别清晰，也很容易察觉自己实现过程中的问题.
+2-3. What I have realized as my mistakes:
+   * I am not regretful about such a hard experience, but I should have arrange it in a better way: 
+     To learn the skills better, to do some easy tasks at the beginning, but not to take the challenge far beyond my ability.(一步步来，别好高骛远。因为我之前是一直想申请博士，所以也是为了有一段科研经历，甚至发表论文，太着急了，学习应该脚踏实地).
+
+3. To introduce some algorithms in distributed framework briefly:
+   How to solve the "Tencent interview question":
+   (1) Each local computer(worker) solve the medium of the dataset it possessed and transfers it to the main computer(master).
+   (2) The main computer compute the average(mean) of those mediums as the result.
+   (3) Bahadur had proved that when the size of the dataset is big enough, the result can be as close to the true medium as possible. 
+
+   Communication-Efficient:
+   (1)Suppose we have a distributed computing environment: like a "master" and several "workers", they try to do a classification problem with big-data distributed in those workers with the optimizer "SGD"
+   (2)Then each worker will compute the gradient with the dataset of its own and transfer it to the master, master will aggregate the gradients to compute new coefficient to upload the model.
+   (3)Then such loop conducts again and again:
+      The master upload the model;
+      The master transfers the uploaded model to workers;
+      Workers use the new model to compute the gradients;
+      Workers transfer the gradients to the master;  
+   (4)What the Communication-Efficient framework studied is that how to reduce the "transfer" between master and workers, since the transfer consumes resources in reality.
+   (5)After you have figure out an algorithm that seems to work, you need to compute the convergent rate to show its validation. And also to show that the algorithms really have less "communications(transfers)" than others.

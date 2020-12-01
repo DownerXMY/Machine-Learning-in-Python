@@ -1,0 +1,4 @@
+As for the algorithm ALS, one need to take care of the following matters:
+  1.ALS.train(ratings=rdd,rank=int,iterations=int)
+  2.ratings must be given by a rdd with a specific framework:[Rating1,Rating2,…,Ratingn,…], note that Rating is inherited from namedtuple, hence must be of the construct as tuple!
+  3.

@@ -1,0 +1,65 @@
+To understand the process and the matipulations in spark and pyspark:
+
+# How to establish .py in Pycharm and run in local:
+  1.make a .py file in Pycharm
+  2.open the terminal and enter the path as:
+    cd /usr/local/Cellar/apache-spark/3.0.0/libexec/bin
+  3.enter as:
+    ./spark-submit --master loca[2](or any one you prefer) --name spark_demo1(or anything you prefer) /Users/mingyuexu/PycahrmProjects/demo/learning/spark_demo_files/spark_demo1.py(the pass your .py exists)
+
+# How to see the process in website:
+  1.open terminal and enter the path as:
+    cd /usr/local/Cellar/apache-spark/3.0.0/libexec/sbin
+  2.enter as:
+    jps
+    to see the processes have been running and kill all the others except the want process
+  3.If you want to add new workers, enter the path:
+    cd /usr/local/Cellar/apache-spark/3.0.0/libexec/sbin
+    vi slaves
+    add wanted new workers at the end
+  4.enter as:
+    ./start-all.sh
+    Then you will find both the master and the worker are working.
+  5.Note that the master will be working at the host:localhost:8080 and the worker will also be working at localhost:8080 if no master is working,but working at localhost:8081 if master is working at the same time.
+  6.The above manipulaitons are just start the master and worker, if you want to done something on rdd, enter as:
+    ./pyspark --master spark://xumingyuedeMacBook-Pro.local:7077 (on master)
+    ./pyspark --master spark://xumingyuedeMacBook-Pro.local:6066 (on worker)
+  7.If you want to submit your work, enter as:
+    ./spark-submit --master spark://xumingyuedeMacBook-Pro.local:7077 --name spark-standalone /Users/mingyuexu/PycharmProjects/demo/learning/spark_demo_files/spark_demo1.py
+  8.The most inmportant mode is yarn:
+    Note that one must point out the HADOOP_CONF_DIR or YARN_CONF_DIR.
+    ./spark-submit --master yarn --name spark-yarn /Users/mingyuexu/PycharmProjects/demo/learning/spark_demo_files/spark_demo1.py
+  9.Note that one of the most inportant things comes as:
+    the python files are expected to begin with:
+        if __name__ == '__main__':
+  10.Other interesting things happen as:
+    Once we run the work on master local, like:
+    (a) ./spark-submit --master local[2] /Users/mingyuexu/PycharmProjects/demo/learning/spark_RDD_advance.py
+    or:
+    (b) ./pyspark --master local[2]
+    And then try to monitor our jobs on the webUi 4040, however only the method (b) can be realized, while not entering quit().
+    Hence, it is important to solve the problem, the approach is to add the coefficient 'spark.eventLog.enable' within the congfile /usr/local/Cellar/apache-spark/3.0.0/libexec/conf/spark-default.conf
+    ...
+    I have met some problems...
+  11.The remaining problems:
+    -Can not broach the namenode and the secondary namenode
+    -Can not broach the history server mode
+    -Can not realize the history host 10080
+  12.To conduct a spark-streaming work with the API 'socketTextStream', enter as:
+    (To start the NetCat firstly) nc -lk 9999(wher the 9999 is the port you disciplined in your code)
+    (Still apply the submit sentence) 
+    ./spark-submit XXX.py localhost 9999
+    (Note that one need to start another window for terminal to run but not the window for nc -lk 9999)
+    Then you can enter what you want in 'nc' terminal and to see what happens in another terminal window.
+  13.We can also read the textfile rather than webUI by applying the API 'textFilestream':
+    ./spark-submit --master spark://xumingyuedeMacBook-Pro.local:7077 /Users/mingyuexu/PycharmProjects/demo/learning/spark_streaming3.py /Users/mingyuexu/PycharmProjects/demo/learning/spark_demo_files/SSC
+    * One need to notice the matter that it is better to move the textfile into the directory, entering as:
+      vi sample.txt
+      mv sample.txt SSC/
+  14.Here we offer extra information about the unzip manipulaiton in terminal:
+     as for zip, enter as:
+        unzip -j filename
+     as for tz, enter as:
+        gzip -d filename
+
+

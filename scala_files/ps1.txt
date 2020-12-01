@@ -1,0 +1,20 @@
+1.In brief, image processing covers a wide range of directions and I prefer "image identification" and "image enhancement".
+
+2-1. It's cool to realize the "face identification" indeed, but one may need to start in some basic tasks such as "emotion recognition". "Image recognition" is one of the core parts in AI, many more complicated applications are based on this such as "Autonomous vehicles". Hence, it is of great value to study it. 
+2-2. I have majored in Mathematics during my undergraduate years. The most important factor is that those years of learning allows me to consider about the problem in a math-perspective, that is to build a logical model for solving this problem and the related algorithms. Moreover, as for knowledge, there are many models in math. I have a deep cognition about those basic models such as LinearR, LogisticR, ... and those anvaced algorithms about "stochastic optimization" such as GD,SGD,SVRG, ... including their mathematical derivation. These preparations enable me to accept complex models like NN more easily and deeply for solving the problem such as "image recognition".
+
+3-1. I have experienced some projects about "image recognition" such as "Dog VS Cats", "handwritten digit recognition", ... I prefer to talk about the "handwritten digit recognition" projects, which invokes my curiosity greatly.3-2.I have tried different kind of models in CNN.
+   * Note that an inspiring idea is that: almost everyone knows that the outline of image is important for recognition, but how to catch the outline by mathematical methodis nontrivial. introduce the "convolution" is a great breakthrough.
+   * build a model myself, but find it slow and of low efficiency.
+   * Adjust coefficients and initializations such as activations, kernel_initializors, poolings, slides, ... for finding a better prediction result.
+   * Apply those famous models such as VGG, NasNet, RasNet, ..., understand the principle of those models.
+3-3. Afterwords, I learned the amazing GAN model applying on "image recognition"
+   * GAN intrinsically parallelize one of important learning mechanism of human being, which is amazing and also inspires me that a proper way to invent algorithms in AI based on taking abstraction of what human being do in reality.
+   * GAN, being a model with both a generator and discriminator, not only realize the goal of "image recognition" in discriminator, but also realize "image enhancement" in generator, which means the model can generate figures with higher-resolution surpass the training data. 
+   * more complex models based on GAN provide even better effects on specific problems, such as DCGAN on "image recognition and enhencement".
+3-4. All in all, both models in CNN and GAN can achieve high accuracy about 97% in prediction. But GAN is of more use and wisdom.
+3-5. Now I am interested in discovering new algorithms in dealing with "image recognition". Are there any trains of thought based on human being can be used for "image recognition"? Can CNN and GAN models be more complex to achieve better efficiency? Fianlly, how to realize "face-identification" with single "image recognition" models combined? Those problems may be turns to be no answer, but deserve studying.
+
+4-1. I hope to learn some inspiring models and leading-edge algorithms about "image indentification" with both their principles and realizations.
+4-2. The inspiring models may be helpful to motivate the research ideas and leading-edge algorithms will allows me to keep up with the development of technical world.
+   

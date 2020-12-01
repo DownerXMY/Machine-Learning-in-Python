@@ -1,0 +1,46 @@
+Kaggle Cats VS Dogs:
+1.data-preparing: Img_to_array, ImgdataGenerator,...
+2.First try: Establish my own convolution neural networks,under the Keras Senquential Model, adjust:
+    the number of filters;
+    the activations including Leaky relu, elu, tanh;
+    the initializers including glorot_uniform, glorot_normal, he_uniform, he_normal(the front two are more appropriate with relu; while the latter two are more appropriate with "tanh");
+    the coefficient in the fully connected layer;
+3.Apply the VGG16 model, detach its convolution part and add new fully connected layer, find the result is pretty much better than previous trial but much less training data are needed.
+4.Apply more existing models including ResNet, InceptionResNet, NasNet under a basic recogniton of those models.
+5. Import Matplotlib to check the predicting result. 
+
+English news classification:
+1. Data preparing:
+     import jieba to get the world could;
+     establish the vocabulary dictionary;
+2. Apply the LSTM model under Keras, try:
+     Get understand the principle of the LSTM model.
+     single and multiple LSTM memory cells.
+     different kernel_initializers.
+     add the Attention.
+     try more complex models including BRNN,DRNN.
+3. Achieve high accuracy for this problem.
+
+StumbleUpon dataset:
+(data origin:https://www.kaggle.com/c/stumbleupon/data)
+Note that this work is done in the Apache-Spark, using Python and scala, respectively and different data structures RDD and DataFrame, respectively.
+RDD:
+   1. data-preparing: 
+       transfer the "alchemy_category" into number while establishing a dictionary;
+       transfer the number got into OneHotEncoding data;
+       drop the useless data;
+       Apply the data train-test random spilt;
+   2. Build different Models including Logistic Regerssion Model, SVM, Naive-Bayesian Model, Decision Tree Classifier, RandomForestClassifier...
+   3. Among all the mentioned model, take ergodic coefficients in loop to find the best combination for the model.
+   4. compare the effeciencies of different models under the metric AreaUnderROC.
+DataFrame:
+   1.One do not need to preprocess the data with self-defined functions.
+   2.data preparing:
+        Introduce the "StringIndexer" to transform the "alchemy_category" into index;
+        Introduce the "OneHotEncoder" to OneHotencode the index;
+        Introduce the "VectorAssembler" to aggregrate the features;
+        Introduce the Classifier; 
+        Introduce the Evaluator;
+   3.Introduce the Pipeline to get all into a pipeline.
+   4.Run the model and seek the best model.
+
